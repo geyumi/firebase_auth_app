@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_app/models/UserModel.dart';
 import 'package:firebase_auth_app/screens/wrapper.dart';
 import 'package:firebase_auth_app/services/auth.dart';
