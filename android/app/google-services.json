@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "487749653943",
-    "project_id": "authfirebase-9fe03",
-    "storage_bucket": "authfirebase-9fe03.appspot.com"
+    "project_number": "964319989532",
+    "project_id": "authenticationfirebase-efcc3",
+    "storage_bucket": "authenticationfirebase-efcc3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:487749653943:android:bf930deb2d7fe8067b0432",
+        "mobilesdk_app_id": "1:964319989532:android:2777ba683023d4d677f4d9",
         "android_client_info": {
           "package_name": "com.example.firebase_auth_app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDPJ_nfV6fQJb-oeQaVPjsmsYnPSCw0bfo"
+          "current_key": "AIzaSyBLlqyZZ0NwiryWSVknoHDaaKvistqpH_k"
         }
       ],
       "services": {

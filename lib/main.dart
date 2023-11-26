@@ -1,8 +1,12 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth_app/models/UserModel.dart';
 import 'package:firebase_auth_app/screens/wrapper.dart';
+import 'package:firebase_auth_app/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   //to correctly initialize firebase
@@ -10,10 +14,10 @@ void main() async {
   Platform.isAndroid
       ? await Firebase.initializeApp(
           options: const FirebaseOptions(
-              apiKey: "AIzaSyDPJ_nfV6fQJb-oeQaVPjsmsYnPSCw0bfo",
-              appId: "1:487749653943:android:bf930deb2d7fe8067b0432",
-              messagingSenderId: "487749653943",
-              projectId: "authfirebase-9fe03"),
+              apiKey: "AIzaSyBLlqyZZ0NwiryWSVknoHDaaKvistqpH_k",
+              appId: "1:964319989532:android:2777ba683023d4d677f4d9",
+              messagingSenderId: "964319989532",
+              projectId: "authenticationfirebase-efcc3"),
         )
       : await Firebase.initializeApp();
   runApp(const MyApp());
@@ -24,6 +28,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrapper();
+    return StreamProvider<UserModel?>.value(
+      initialData: UserModel(uid: ""),
+      value: AuthServices().user,
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Wrapper(),
+      ),
+    );
   }
 }
