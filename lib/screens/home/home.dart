@@ -1,3 +1,5 @@
+import 'package:firebase_auth_app/constants/colors.dart';
+import 'package:firebase_auth_app/constants/description.dart';
 import 'package:firebase_auth_app/services/auth.dart';
 import 'package:flutter/material.dart';
 
@@ -17,15 +19,53 @@ class _HomeState extends State<Home> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: bgBlack,
         appBar: AppBar(
-          title: Text("HOME"),
+          elevation: 0,
+          backgroundColor: bgBlack,
           actions: [
             ElevatedButton(
+                style: const ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(bgBlack)),
                 onPressed: () async {
                   await _auth.signOut();
                 },
-                child: const Icon(Icons.logout))
+                child: const Icon(Icons.logout, color: Colors.white))
           ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Center(
+            child: Column(
+              children: [
+                const Text(
+                  "HOME",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                const Text(
+                  description,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: textLight,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Image.asset(
+                  "assets/images/man.png",
+                  height: 150,
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
