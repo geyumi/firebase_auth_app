@@ -4,14 +4,14 @@ import 'package:firebase_auth_app/constants/styles.dart';
 import 'package:firebase_auth_app/services/auth.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+class Register extends StatefulWidget {
+  const Register({super.key});
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<Register> createState() => _Sign_InState();
 }
 
-class _SignInState extends State<SignIn> {
+class _Sign_InState extends State<Register> {
   //ref object for AuthServices class
   final AuthServices _auth = AuthServices();
 
@@ -179,16 +179,3 @@ class _SignInState extends State<SignIn> {
         ));
   }
 }
-
-// ElevatedButton(
-//         child: const Text("Sign in Anonymously"),
-//         onPressed: () async {
-//           dynamic result = await _auth.signInAnonymously();
-//           if (result == null) {
-//             print("Error in signing");
-//           } else {
-//             print("Sign in anonymously");
-//             print(result.uid);
-//           }
-//         },
-//       ),
