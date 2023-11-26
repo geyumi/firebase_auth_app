@@ -59,6 +59,7 @@ class _Sign_InState extends State<Register> {
                         children: [
                           //email
                           TextFormField(
+                            style: TextStyle(color: Colors.white),
                             decoration: textInputDecoration,
                             validator: (val) => val?.isEmpty == true
                                 ? "Enter a valid email"
@@ -76,6 +77,8 @@ class _Sign_InState extends State<Register> {
 
                           //password
                           TextFormField(
+                            obscureText: true,
+                            style: TextStyle(color: Colors.white),
                             decoration: textInputDecoration.copyWith(
                                 hintText: "Password"),
                             validator: (val) => val!.length < 6
@@ -91,6 +94,11 @@ class _Sign_InState extends State<Register> {
                           //google
                           const SizedBox(
                             height: 20,
+                          ),
+                          //error text
+                          Text(
+                            error,
+                            style: TextStyle(color: Colors.red),
                           ),
                           const Text(
                             "Login with social accounts",

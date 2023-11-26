@@ -23,6 +23,7 @@ class _SignInState extends State<SignIn> {
   //email password states
   String email = "";
   String password = "";
+  String error = "";
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +59,7 @@ class _SignInState extends State<SignIn> {
                         children: [
                           //email
                           TextFormField(
+                            style: TextStyle(color: Colors.white),
                             decoration: textInputDecoration,
                             validator: (val) => val?.isEmpty == true
                                 ? "Enter a valid email"
@@ -74,6 +76,8 @@ class _SignInState extends State<SignIn> {
 
                           //password
                           TextFormField(
+                            obscureText: true,
+                            style: TextStyle(color: Colors.white),
                             decoration: textInputDecoration.copyWith(
                                 hintText: "Password"),
                             validator: (val) => val!.length < 6
@@ -86,16 +90,20 @@ class _SignInState extends State<SignIn> {
                             },
                           ),
 
+                          Text(
+                            error,
+                            style: TextStyle(color: Colors.red),
+                          ),
                           //google
                           const SizedBox(
-                            height: 20,
+                            height: 15,
                           ),
                           const Text(
                             "Login with social accounts",
                             style: descriptionStyle,
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           GestureDetector(
                             onTap: () {},
@@ -106,7 +114,7 @@ class _SignInState extends State<SignIn> {
                             )),
                           ),
                           SizedBox(
-                            height: 15,
+                            height: 10,
                           ),
 
                           ///register
@@ -139,7 +147,16 @@ class _SignInState extends State<SignIn> {
                           //button
                           GestureDetector(
                             //method for login user
-                            onTap: () {},
+                            onTap: () async {
+                              dynamic result = await _auth
+                                  .signInUsingEmailAndPassword(email, password);
+                              if (result == null) {
+                                setState(() {
+                                  error =
+                                      "Could not sign in with those credentials";
+                                });
+                              }
+                            },
                             child: Container(
                               height: 40,
                               width: 200,
@@ -164,8 +181,10 @@ class _SignInState extends State<SignIn> {
 
                           //anon
                           GestureDetector(
-                            //method for login user
-                            onTap: () {},
+                            //method for login user as anon
+                            onTap: () async {
+                              await _auth.signInAnonymously();
+                            },
                             child: Container(
                               height: 40,
                               width: 200,
