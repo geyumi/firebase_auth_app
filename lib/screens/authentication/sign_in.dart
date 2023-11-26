@@ -89,6 +89,9 @@ class _SignInState extends State<SignIn> {
                               });
                             },
                           ),
+                          const SizedBox(
+                            height: 10,
+                          ),
 
                           Text(
                             error,
@@ -96,8 +99,9 @@ class _SignInState extends State<SignIn> {
                           ),
                           //google
                           const SizedBox(
-                            height: 15,
+                            height: 5,
                           ),
+
                           const Text(
                             "Login with social accounts",
                             style: descriptionStyle,
@@ -110,7 +114,7 @@ class _SignInState extends State<SignIn> {
                             child: Center(
                                 child: Image.asset(
                               "assets/images/google.png",
-                              height: 50,
+                              height: 40,
                             )),
                           ),
                           SizedBox(
